@@ -1,14 +1,10 @@
-# app/db.py
 import oracledb
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from app.core.config import settings
 
 def get_connection():
+    dsn = f"{settings.ORACLE_HOST}:{settings.ORACLE_PORT}/{settings.ORACLE_SERVICE}"
     return oracledb.connect(
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
-        dsn=os.getenv("DB_DSN"),
-        encoding="UTF-8"
+        user=settings.ORACLE_USER,
+        password=settings.ORACLE_PASSWORD,
+        dsn=dsn
     )
