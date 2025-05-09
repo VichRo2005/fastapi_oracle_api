@@ -1,5 +1,5 @@
 fastapi
 uvicorn
-sqlalchemy
 oracledb
 python-dotenv
+bcrypt==4.0.1
